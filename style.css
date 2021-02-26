@@ -1,0 +1,25 @@
+body {
+    background: rgb(107, 210, 218) 238, 255);
+  }
+  p {
+    color: black;
+  }
+  h1 {
+    font-weight: bold;
+  
+  }
+    .cdFont{
+      font-family: 'Orbitron', sans-serif;;
+      color: rgb(21, 5, 26);
+      font-size: 72px;
+      border-style: solid;
+  
+  
+  
+  
+    }
+  .cdImage{
+    width: 80%;
+    margin-left: 10%
+  
+  }

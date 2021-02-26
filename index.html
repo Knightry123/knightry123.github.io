@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1 class="cdFont">
+      HOI4 stat tracker
+    </h1>
+    
+    <h1 class="cdFont">
+     Your Stats input
+    </h1>
+    <input  id="TotalLoses"
+           placeholder="Total Loses">
+    <input id="Country"
+           placeholder="Country">
+    <input id="Nationskilled"
+           placeholder=" nations capitulated (number)">
+    <input id="name"
+           placeholder="Name">
+    
+    <button onclick="saveData()"> Add Data</button>
+
+  </body>
+</html>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.1.1/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBOMKhVp3IsF3fPxizcqpZAQJZWMcC4mmc",
+    authDomain: "summercamps1234-9ae88.firebaseapp.com",
+    databaseURL: "https://summercamps1234-9ae88.firebaseio.com",
+    projectId: "summercamps1234-9ae88",
+    storageBucket: "summercamps1234-9ae88.appspot.com",
+    messagingSenderId: "418553238862",
+    appId: "1:418553238862:web:88ab1d2c9ee88caa"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+
+<script>
+  function saveData(){
+    var rootRef = firebase.database().ref();
+    var storesRef = rootRef.child('/Conor/Hoi/');
+    var newStoreRef= storesRef.push();
+    newStoreRef.set(
+      {
+        make: document.getElementById("TotalLoses").value,
+        model: document.getElementById("Country").value,
+        color: document.getElementById("Nationskilled").value,
+        price: document.getElementById("Name").value                           
+      }
+      );
+  }
+</script>
