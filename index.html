@@ -20,7 +20,7 @@
     <input id="name"
            placeholder="Name">
     
-    <button onclick="saveData()"> Add Data</button>
+    <button onclick="writeData()"> Add Data</button>
 
   </body>
 </html>
@@ -47,9 +47,17 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+
+  function writeData(){
+      firbase.database().ref("User").set({
+          Losses: document.getElementById("TotalLoses").value,
+          Country: document.getElementById("Country").value,
+          Nations: document.getElementById("Nationskilled").value,
+          Name: document.getElementById("Name").value
+      })
+  }
 </script>
-
-
+<!--
 <script>
   function saveData(){
     var rootRef = firebase.database().ref();
@@ -65,3 +73,6 @@
       );
   }
 </script>
+-->
+
+  
