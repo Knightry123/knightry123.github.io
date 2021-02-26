@@ -49,7 +49,7 @@
   firebase.analytics();
 
   function writeData(){
-      firbase.database().ref("User").set({
+      firebase.database().ref("User").set({
           Losses: document.getElementById("TotalLoses").value,
           Country: document.getElementById("Country").value,
           Nations: document.getElementById("Nationskilled").value,
