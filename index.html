@@ -47,7 +47,7 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-
+  <!--
   function writeData(){
       firebase.database().ref("hoi").set({
           Losses: document.getElementById("TotalLoses").value,
@@ -57,7 +57,8 @@
       })
   }
 </script>
-<!--
+-->
+
 <script>
   function saveData(){
     var rootRef = firebase.database().ref();
@@ -73,6 +74,6 @@
       );
   }
 </script>
--->
+
 
   
