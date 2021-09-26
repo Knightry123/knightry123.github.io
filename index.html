@@ -22,58 +22,61 @@
     
     <button onclick="writeData()"> Add Data </button>
 
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyC7yPyFUpbdHOTEbkmCyVUrgGD42WB_iL8",
+        authDomain: "hoi4-3a82b.firebaseapp.com",
+        databaseURL: "https://hoi4-3a82b-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "hoi4-3a82b",
+        storageBucket: "hoi4-3a82b.appspot.com",
+        messagingSenderId: "304265953532",
+        appId: "1:304265953532:web:14c814adffbd270045d779",
+        measurementId: "G-FTRN6DS9FB"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
+    <script>
+    function writeData(){
+        firebase.database().ref("hoi").set({
+            Losses: document.getElementById("TotalLoses").value,
+            Country: document.getElementById("Country").value,
+            Nations: document.getElementById("Nationskilled").value,
+            Name: document.getElementById("Name").value
+        })
+    }
+  </script>
+  
+  
+  <script>
+    function saveData(){
+      var rootRef = firebase.database().ref();
+      var storesRef = rootRef.child('/Conor/Hoi/');
+      var newStoreRef= storesRef.push();
+      newStoreRef.set(
+        {
+          make: document.getElementById("TotalLoses").value,
+          model: document.getElementById("Country").value,
+          color: document.getElementById("Nationskilled").value,
+          price: document.getElementById("Name").value                           
+        }
+        );
+    }
+  </script>
+  
   </body>
+ 
+
 </html>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyC7yPyFUpbdHOTEbkmCyVUrgGD42WB_iL8",
-    authDomain: "hoi4-3a82b.firebaseapp.com",
-    projectId: "hoi4-3a82b",
-    storageBucket: "hoi4-3a82b.appspot.com",
-    messagingSenderId: "304265953532",
-    appId: "1:304265953532:web:8e74b29e2895a6f745d779",
-    measurementId: "G-L98SMQ4F8X"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-
-  function writeData(){
-      firebase.database().ref("hoi").set({
-          Losses: document.getElementById("TotalLoses").value,
-          Country: document.getElementById("Country").value,
-          Nations: document.getElementById("Nationskilled").value,
-          Name: document.getElementById("Name").value
-      })
-  }
-</script>
-
-
-<script>
-  function saveData(){
-    var rootRef = firebase.database().ref();
-    var storesRef = rootRef.child('/Conor/Hoi/');
-    var newStoreRef= storesRef.push();
-    newStoreRef.set(
-      {
-        make: document.getElementById("TotalLoses").value,
-        model: document.getElementById("Country").value,
-        color: document.getElementById("Nationskilled").value,
-        price: document.getElementById("Name").value                           
-      }
-      );
-  }
-</script>
-
 
   
